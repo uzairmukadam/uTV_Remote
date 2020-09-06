@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.os.Vibrator;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -22,8 +21,8 @@ public class RemoteActivity extends AppCompatActivity {
 
     ImageButton power, mute, d_up, d_down, d_left, d_right, d_btn, home, back, menu, prev, play, next;
 
-    String ip_address;
-    int port_number;
+    static String ip_address;
+    static int port_number;
 
     Vibrator vibrator;
 
@@ -158,7 +157,7 @@ public class RemoteActivity extends AppCompatActivity {
         sendInput.execute();
     }
 
-    public class SendInput extends AsyncTask<Void, Void, Void> {
+    public static class SendInput extends AsyncTask<Void, Void, Void> {
         String response = "";
         String btn_input;
 
@@ -186,11 +185,9 @@ public class RemoteActivity extends AppCompatActivity {
                 response = dataInputStream.readUTF();
 
             } catch (UnknownHostException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
                 response = "UnknownHostException: " + e.toString();
             } catch (IOException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
                 response = "IOException: " + e.toString();
             } finally {
@@ -198,7 +195,6 @@ public class RemoteActivity extends AppCompatActivity {
                     try {
                         socket.close();
                     } catch (IOException e) {
-                        // TODO Auto-generated catch block
                         e.printStackTrace();
                     }
                 }
@@ -207,7 +203,6 @@ public class RemoteActivity extends AppCompatActivity {
                     try {
                         dataOutputStream.close();
                     } catch (IOException e) {
-                        // TODO Auto-generated catch block
                         e.printStackTrace();
                     }
                 }
@@ -216,7 +211,6 @@ public class RemoteActivity extends AppCompatActivity {
                     try {
                         dataInputStream.close();
                     } catch (IOException e) {
-                        // TODO Auto-generated catch block
                         e.printStackTrace();
                     }
                 }
@@ -226,7 +220,6 @@ public class RemoteActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(Void result) {
-            this.response = response;
             super.onPostExecute(result);
         }
 
