@@ -22,7 +22,8 @@
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:background="@drawable/power_back"
-            app:srcCompat="@drawable/baseline_power_settings_new_black_36" />
+            android:contentDescription="@string/power_button"
+            app:srcCompat="@drawable/power_btn" />
 
         <ImageButton
             android:id="@+id/btn_mute"
@@ -30,7 +31,8 @@
             android:layout_height="45dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/btn_back"
-            app:srcCompat="@drawable/baseline_volume_off_black_36" />
+            android:contentDescription="@string/mute_button"
+            app:srcCompat="@drawable/sound_btn" />
     </LinearLayout>
 
     <LinearLayout
@@ -54,7 +56,8 @@
                 android:layout_height="50dp"
                 android:layout_marginHorizontal="32dp"
                 android:background="@drawable/btn_back"
-                app:srcCompat="@drawable/baseline_home_black_36" />
+                android:contentDescription="@string/home_button"
+                app:srcCompat="@drawable/home_btn" />
 
             <ImageButton
                 android:id="@+id/btn_back"
@@ -62,9 +65,8 @@
                 android:layout_height="50dp"
                 android:layout_marginHorizontal="32dp"
                 android:background="@drawable/btn_back"
-                android:paddingStart="16dp"
-                android:paddingLeft="16dp"
-                app:srcCompat="@drawable/baseline_arrow_back_ios_black_36" />
+                android:contentDescription="@string/back_button"
+                app:srcCompat="@drawable/back_btn" />
 
             <ImageButton
                 android:id="@+id/btn_menu"
@@ -72,7 +74,8 @@
                 android:layout_height="50dp"
                 android:layout_marginHorizontal="32dp"
                 android:background="@drawable/btn_back"
-                app:srcCompat="@drawable/baseline_menu_black_36" />
+                android:contentDescription="@string/menu_button"
+                app:srcCompat="@drawable/menu_btn" />
         </LinearLayout>
 
         <LinearLayout
@@ -88,7 +91,8 @@
                 android:layout_height="50dp"
                 android:layout_marginHorizontal="16dp"
                 android:background="@drawable/btn_back"
-                app:srcCompat="@drawable/baseline_skip_previous_black_36" />
+                android:contentDescription="@string/prev_button"
+                app:srcCompat="@drawable/prev_btn" />
 
             <ImageButton
                 android:id="@+id/btn_play"
@@ -96,7 +100,8 @@
                 android:layout_height="50dp"
                 android:layout_marginHorizontal="16dp"
                 android:background="@drawable/btn_back"
-                app:srcCompat="@drawable/baseline_play_arrow_black_36" />
+                android:contentDescription="@string/play_pause_button"
+                app:srcCompat="@drawable/play_btn" />
 
             <ImageButton
                 android:id="@+id/btn_next"
@@ -104,7 +109,8 @@
                 android:layout_height="50dp"
                 android:layout_marginHorizontal="16dp"
                 android:background="@drawable/btn_back"
-                app:srcCompat="@drawable/baseline_skip_next_black_36" />
+                android:contentDescription="@string/next_button"
+                app:srcCompat="@drawable/next_btn" />
         </LinearLayout>
     </LinearLayout>
 
@@ -129,8 +135,9 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:background="@null"
+                android:contentDescription="@string/d_button"
                 android:tint="@android:color/white"
-                app:srcCompat="@drawable/baseline_change_history_black_36" />
+                app:srcCompat="@drawable/d_arrow" />
         </TableRow>
 
         <TableRow
@@ -144,24 +151,27 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:background="@null"
+                android:contentDescription="@string/d_button"
                 android:rotation="-90"
                 android:tint="@android:color/white"
-                app:srcCompat="@drawable/baseline_change_history_black_36" />
+                app:srcCompat="@drawable/d_arrow" />
 
             <ImageButton
                 android:id="@+id/d_enter"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
-                android:background="@drawable/btn_back" />
+                android:background="@drawable/btn_back"
+                android:contentDescription="@string/d_enter_button" />
 
             <ImageButton
                 android:id="@+id/d_right"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:background="@null"
+                android:contentDescription="@string/d_button"
                 android:rotation="90"
                 android:tint="@android:color/white"
-                app:srcCompat="@drawable/baseline_change_history_black_36" />
+                app:srcCompat="@drawable/d_arrow" />
         </TableRow>
 
         <TableRow
@@ -175,9 +185,10 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:background="@null"
+                android:contentDescription="@string/d_button"
                 android:rotation="180"
                 android:tint="@android:color/white"
-                app:srcCompat="@drawable/baseline_change_history_black_36" />
+                app:srcCompat="@drawable/d_arrow" />
         </TableRow>
 
     </TableLayout>
@@ -186,9 +197,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@null"
+        android:contentDescription="@string/settings_button"
         android:onClick="resetIP"
         android:padding="4dp"
+        android:tint="@android:color/darker_gray"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+        app:srcCompat="@drawable/settings_btn" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">uTV Remote</string>
+    <string name="ip_address_hint">IP Address</string>
+    <string name="port_no_hint">Port No.</string>
+    <string name="connect_btn">Connect</string>
+    <string name="power_button">Power button</string>
+    <string name="mute_button">Mute button</string>
+    <string name="home_button">Home button</string>
+    <string name="back_button">Back button</string>
+    <string name="settings_button">Settings button</string>
+    <string name="d_button">D button</string>
+    <string name="d_enter_button">D enter button</string>
+    <string name="menu_button">Menu button</string>
+    <string name="prev_button">Prev button</string>
+    <string name="play_pause_button">Play Pause button</string>
+    <string name="next_button">Next button</string>
 </resources>

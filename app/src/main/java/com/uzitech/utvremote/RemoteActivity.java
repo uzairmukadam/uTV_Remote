@@ -152,9 +152,8 @@ public class RemoteActivity extends AppCompatActivity {
     }
 
     void buttonClick(String input) {
-        SendInput sendInput = new SendInput(input);
         vibrator.vibrate(24);
-        sendInput.execute();
+        new SendInput(input).execute();
     }
 
     public static class SendInput extends AsyncTask<Void, Void, Void> {
