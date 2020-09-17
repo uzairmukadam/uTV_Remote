@@ -205,4 +205,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/settings_btn" />
 
+    <ImageView
+        android:id="@+id/connection_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/connection_status"
+        app:tint="@android:color/holo_red_dark" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,11 +3,13 @@ package com.uzitech.utvremote;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -25,6 +27,8 @@ public class RemoteActivity extends AppCompatActivity {
     static int port_number;
 
     Vibrator vibrator;
+
+    static ImageView connection_status;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +54,8 @@ public class RemoteActivity extends AppCompatActivity {
         prev = findViewById(R.id.btn_prev);
         play = findViewById(R.id.btn_play);
         next = findViewById(R.id.btn_next);
+
+        connection_status = findViewById(R.id.connection_status);
 
         power.setOnClickListener(new View.OnClickListener() {
             @Override
