@@ -5,13 +5,17 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.res.ResourcesCompat;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -162,7 +166,7 @@ public class RemoteActivity extends AppCompatActivity {
         new SendInput(input).execute();
     }
 
-    public static class SendInput extends AsyncTask<Void, Void, Void> {
+    public class SendInput extends AsyncTask<Void, Void, Void> {
         String response = "";
         String btn_input;
 
@@ -225,7 +229,12 @@ public class RemoteActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(Void result) {
-            super.onPostExecute(result);
+            //super.onPostExecute(result);
+            if(response.equalsIgnoreCase("received")){
+                connection_status.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.in_connection));
+            }else {
+                connection_status.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.no_connection));
+            }
         }
 
     }
