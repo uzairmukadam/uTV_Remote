@@ -3,19 +3,16 @@ package com.uzitech.utvremote;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
-import androidx.core.content.res.ResourcesCompat;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -32,7 +29,9 @@ public class RemoteActivity extends AppCompatActivity {
 
     Vibrator vibrator;
 
-    static ImageView connection_status;
+    ImageView connection_status;
+    TextView debug_text;
+    long time;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +59,9 @@ public class RemoteActivity extends AppCompatActivity {
         next = findViewById(R.id.btn_next);
 
         connection_status = findViewById(R.id.connection_status);
+
+        //
+        debug_text = findViewById(R.id.debug_text);
 
         power.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -163,6 +165,7 @@ public class RemoteActivity extends AppCompatActivity {
 
     void buttonClick(String input) {
         vibrator.vibrate(24);
+        time = System.currentTimeMillis();
         new SendInput(input).execute();
     }
 
@@ -230,9 +233,11 @@ public class RemoteActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void result) {
             //super.onPostExecute(result);
-            if(response.equalsIgnoreCase("received")){
+            time -= System.currentTimeMillis();
+            debug_text.setText(response + " : " + time);
+            if (response.equalsIgnoreCase("received")) {
                 connection_status.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.in_connection));
-            }else {
+            } else {
                 connection_status.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.no_connection));
             }
         }
