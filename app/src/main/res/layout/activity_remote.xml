@@ -212,7 +212,7 @@
         android:layout_height="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ini_connection"/>
+        app:srcCompat="@drawable/ini_connection" />
 
     <TextView
         android:id="@+id/debug_text"
@@ -220,6 +220,7 @@
         android:layout_height="wrap_content"
         android:background="@android:color/white"
         android:padding="4dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/tableLayout"
         app:layout_constraintEnd_toEndOf="@+id/tableLayout"
         app:layout_constraintStart_toStartOf="@+id/tableLayout"
